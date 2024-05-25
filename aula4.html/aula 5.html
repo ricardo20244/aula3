@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Calculadora</title>
+    <link href="calculadora.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="caixa">
+      <div class="CALCULATOR">
+        <h1>CALCULATOR</h1>
+      </div>
+      <p id="resultado"></p>
+      <div class="bt-topo">
+        <div class="bt" onclick="clean()">AC</div>
+        <div class="bt" onclick="back('<')"><</div>
+        <div class="bt" onclick="insert('%')">%</div>
+      </div>
+
+      <div class="bt outra" onclick="insert('/')">/</div>
+      <div class="bt" onclick="insert('7')">7</div>
+      <div class="bt" onclick="insert('8')">8</div>
+
+      <div class="bt" onclick="insert('9')">9</div>
+      <div class="bt" onclick="insert('*')">X</div>
+      <div class="bt" onclick="insert('4')">4</div>
+
+      <div class="bt" onclick="insert('5')">5</div>
+      <div class="bt" onclick="insert('6')">6</div>
+      <div class="bt" onclick="insert('-')">-</div>
+
+      <div class="bt" onclick="insert('1')">1</div>
+      <div class="bt" onclick="insert('2')">2</div>
+      <div class="bt" onclick="insert('3')">3</div>
+
+      <div class="bt" onclick="insert('+')">+</div>
+      <div colspan="2" class="bt" style="width: 106px" onclick="insert('0')">
+        0
+      </div>
+      <div class="bt" onclick="insert(',')">,</div>
+      <div class="bt" onclick="calcular()">=</div>
+    </div>
+    <script>
+      function insert(num) {
+        var numero = document.getElementById("resultado").innerHTML;
+        document.getElementById("resultado").innerHTML = numero + num;
+      }
+      function clean() {
+        document.getElementById("resultado").innerHTML = "";
+      }
+      function back() {
+        var resultado = document.getElementById("resultado").innerHTML;
+        document.getElementById("resultado").innerHTML = resultado.substring(
+          0,
+          resultado.length - 1
+        );
+      }
+      function calcular() {
+        var resultado = document.getElementById("resultado").innerHTML;
+        if (resultado) {
+          document.getElementById("resultado").innerHTML = eval(resultado);
+        }
+      }
+    </script>
+  </body>
+</html>
